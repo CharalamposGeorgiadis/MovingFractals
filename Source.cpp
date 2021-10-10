@@ -25,7 +25,7 @@ void reshape(int width, int height)
     // Setting projection matrix
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluOrtho2D(0.0, 600.0, 0.0, 600.0);
+    gluOrtho2D(-600.0, 0.0, -600.0, 0.0);
     glMatrixMode(GL_MODELVIEW);
 
 }
@@ -58,11 +58,14 @@ void display(void)
             p[0] = (p[0] + verticesP[j][0]) / 3;
             p[1] = (p[1] + verticesP[j][1]) / 3;
         }
+        glPushMatrix();
+        glRotatef(180, 0.0f ,0.0f, 0.0f);
         glBegin(GL_POINTS);
             if (flag) // Creates unique color for every point(case 2)
                 randomColor();
             glVertex2fv(p);
         glEnd();
+        glPopMatrix();
     }
     glutSwapBuffers();
 }
