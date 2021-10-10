@@ -169,4 +169,5 @@ int main(int argc, char** argv)
     
     // Starting the event processing loop
     glutMainLoop();
+    return 0;
 }
